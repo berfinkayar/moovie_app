@@ -1,29 +1,14 @@
-from platform import release
 import requests
-from django.db.models import Sum
-from django.db.models import Count
-from .models import Character, Movie, UserMovieRating
-from .models import User
-from .models import List
-from .models import UserFollowing
-from .models import Genre
-from .models import Actor
-from .models import Review
-from .models import Director
-from .forms import MovieForm
-from .forms import ListForm
-from .forms import ReviewForm
+from platform import release
 from django.views import View
-from django.db.models import Q
-from django.urls import reverse
-from django.http import HttpResponse
-from django.urls import reverse_lazy
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.shortcuts import get_object_or_404
+from django.db.models import Sum, Count, Q
+from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
-from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import MovieForm, ListForm, ReviewForm
+from .models import Character, Movie, UserMovieRating, User, List, UserFollowing, Genre, Actor, Review, Director
 
 
 class MovieView(View):
