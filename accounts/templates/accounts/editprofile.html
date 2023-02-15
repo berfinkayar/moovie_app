@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+{% block css %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/editprofile.css' %}">
+{% endblock %}
+{% block title %}Edit profile{% endblock %}
+{% block content %}
+<body>
+    <section>
+        <div class="editprofile">
+            <div class="col">
+                <form class="file-upload" id="edit_profile_form" method="post" action="{% url 'edit_profile' %}">
+                    {% csrf_token %}
+                        <div class="row">
+                            <h2 class="heading">Profile settings</h2>
+                            <label class="form-label">Username </label>
+                            <input type="text" id="username" name='username' class="form-control" value="{{user.username}}">
+
+                            <label class="form-label">Name</label>
+                            <input type="text" name='name' class="form-control" value="{{user.name}}">
+
+                            <label class="form-label">Email </label>
+                            <input type="email" name='email' class="form-control" value="{{user.email}}">
+
+                            <label class="form-label">Bio </label>
+                            <input type="text" name='bio' class="form-control" value="{{user.bio}}">
+
+                            <label class="form-label">Location</label>
+                            <input type="text" name='location' class="form-control" value="{{user.location}}">
+
+                            <label class="form-label">Profile picture</label>
+                            <input type="text" name='profile' class="form-control" value="{{user.profilepic}}">
+                        </div>
+                        <br><br>
+                        <h2 class="heading">social media</h2>
+                        <label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook </label>
+                        <input type="text" name="facebook" class="form-control" placeholder="" aria-label="Facebook" value="{{user.facebook}}">
+
+                        <label class="form-label"><i class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter </label>
+                        <input type="text" name="twitter" class="form-control" placeholder="" aria-label="Twitter" value="{{user.twitter}}">
+                        <br>
+                        <button type="submit" class="form-submit"  style="font-weight:500; font-size:14px; height:45px; width:120px; float: right;">Update profile</button>
+                </form>
+                <br><br><br>
+                <form class="file-upload" method="post" action="{% url 'change_password' %}" >
+                    {% csrf_token %}
+                    <h2 class="heading">change password</h2>
+                        {% if messages %}
+                            <ul class="messages">
+                            {% for message in messages %}
+                                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <label for="exampleInputPassword1" class="form-label">Old password*</label>
+                        <input type="password" name="old_password" class="form-control" id="exampleInputPassword1">
+
+                        <label for="exampleInputPassword2" class="form-label">New password*</label>
+                        <input type="password" name="new_password" class="form-control" id="exampleInputPassword2">
+
+                        <label for="ConfirmNewPassword" class="form-label">Confirm password*</label>
+                        <input type="password" name="confirm_password" class="form-control"  id="ConfirmNewPassword">
+                    
+                        <br>
+                        <button type="submit" class="form-submit"  style="font-weight:500; font-size:14px; height:45px; width:150px; float: right;">Change password</button>
+                </form> 
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}
+</html>

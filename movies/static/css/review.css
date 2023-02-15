@@ -1,0 +1,106 @@
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+.delete-popup {
+    width: 550px;
+    height: 200px;
+    display: none;
+    position: fixed;
+    bottom: 300px;
+    left: 440px;
+    background-color: white;
+    z-index: 9;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+.delete-popup .btn {
+    background-color: #333334;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    margin-bottom:10px;
+}
+.delete-text{
+    color: black; 
+    margin-left: 130px; 
+    margin-top: 60px;
+}
+.delete-buttons {
+    margin-left: 70px;
+    margin-top: 50px;         
+}
+.edit-popup {
+    width: 800px;
+    height: 250px;
+    display: none;
+    position: fixed;
+    bottom: 300px;
+    left: 350px;
+    background-color: white;
+    z-index: 9;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+.form-container {
+    width: 800px;
+    height: 300px;
+    padding: 10px;
+}
+.form-container input[type=text] {
+    font-size: medium;
+    color: #f1f1f1;
+    width: 600px;
+    height: 80px;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #333334;
+}
+.form-container input[type=text]:focus{
+    font-size: medium;
+    background-color: #333334;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #333334;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    margin-bottom:10px;
+}
+form {
+    display: inline;
+}
+.center-buttons {
+    margin-left: 100px;
+    margin-top: 20px;         
+}
+.center-form{
+    margin-top: 10px;
+    margin-left: 40px;
+}
+.comment-text {
+    position: relative;
+}
+.review-delete, .edit-button {
+    background: none;
+    font-size: 15px;
+    color: var(--main-color);
+}
+.review-delete:hover, .edit-button:hover {
+    color: var(--hover-main);
+}

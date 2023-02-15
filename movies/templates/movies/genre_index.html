@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+{% block css %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/genre.css' %}">
+{% endblock %}
+{% block title %}Genres{% endblock %}
+{% block content %}
+<section class="movies" id="movies" style="margin-top: 30px;">
+    {% if genre_dict %}
+        {% for genre, movies in genre_dict.items %}
+            <a href="{% url 'genre_detail' genre_id=genre.id %}">
+                <h2 class="heading">{{genre}}</h2>
+            </a>
+            <div class="scrollmenu">
+                <div class="movie-container">
+                    {% for movie in movies %}
+                        <a href="{% url 'movie_detail' movie_id=movie.id %}">
+                            <div class="box">
+                                <div class="box-img">
+                                    <img src="{{movie.poster}}" alt="">
+                                </div>
+                                <h3>{{movie.name}}</h3>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>
+
+{% endblock %}
+</html>

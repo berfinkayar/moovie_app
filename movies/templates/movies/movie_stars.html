@@ -1,0 +1,42 @@
+{% if movie.rating == 5 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 4.5 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star-half fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 4 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 3.5 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star-half fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 3 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 2.5 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star-half fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 2 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 1.5 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+<i class="fa fa-star-half fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% elif movie.rating >= 1 %} 
+<i class="fa fa-star fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% else %} 
+<i class="fa fa-star-half fa-2x" style="size: 20px; color: rgb(244, 231, 87);"></i>
+{% endif %}

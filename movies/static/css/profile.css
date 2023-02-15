@@ -1,0 +1,132 @@
+.profile .row {
+    margin: 130px 20px 0px 20px;
+}
+.profile .column-1 {
+    margin-left: 20px;
+    float: left;
+    width: 24%;
+}
+.profile .column-2 {
+    margin-left: 30px;
+    float: left;
+    width: 48%;
+}
+.profile .column-3 {
+    margin-left: 15px;
+    float: left;
+    width: 20%;
+}
+.profile-card {
+    width: 324px;
+    margin-top: 10px;
+    background-color: rgb(22, 21, 21);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom: 2px solid var(--text-color);
+    box-shadow: 0 0 5px  rgb(22, 21, 21), 2px 2px 5px  rgb(22, 21, 21);
+}
+.profile .icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 15px 0px 10px 123px;
+}
+.profile .location, .profile .bio, .profile .name, .profile .username{
+    width:324px; 
+    text-align:center;
+}
+.poster-comment:hover{
+    outline: 2px solid var(--main-color);
+}
+.profile .watchlist-card {
+    width: 350px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    color: #020307;
+}
+.follower-button, .following-button, .list-button{
+    width: 108px;
+    height: 75px;
+    font-weight: 500;
+    background-color:  rgb(22, 21, 21);
+    border: #0d0c0c;
+    outline: #2d2929;
+    padding-top: 2px;
+    border-top: 2px solid var(--text-color);
+    box-shadow: 0 0 5px  rgb(22, 21, 21), 2px 2px 5px  rgb(22, 21, 21);
+}
+.follower-button{
+    border-right: 4px solid var(--text-color);
+    border-bottom-left-radius:7px ;
+}
+.list-button{
+    border-top: 2px solid var(--text-color);
+    border-left: 2px solid var(--text-color);
+    border-bottom-right-radius:7px ;
+}
+
+.following-button:hover, .follower-button:hover, .list-button:hover{
+    border-top: 2px solid var(--text-color);
+    border-left: 2px solid var(--text-color);
+    border-right: 2px solid var(--text-color);
+    background-color: #383636;
+}
+.followers, .followings, .lists, .likers {
+    width: 570px;
+    height: 600px;
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    left: 435px;
+    color: black;
+    background-color: rgb(53, 52, 52);
+    z-index: 9;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+.follower, .following, .liker{
+    height: 60px;
+    margin-top: 20px; 
+    margin-left:20px;
+}
+.list {
+    height: 30px;
+    margin-top: 20px; 
+    margin-left:40px;
+}
+.list a:hover{
+    color: rgb(159, 158, 158);
+}
+.scroll {
+    background-color: transparent;
+    overflow: auto;
+    height: 550px;
+}
+.scroll .follower, .scroll .list, .scroll .following, .scroll .liker {
+    display: block;
+}
+.close-button{
+    background-color: transparent;
+    margin-top: 7px;
+    margin-left: 540px;
+}
+.close-button i{
+    font-size: 20px;
+    color: var(--main-color);
+}
+.close-button i:hover{
+    color: var(--hover-main);
+}
+.tabcontent .movies-container{
+    max-width:650px !important; 
+    margin-left:1px !important; 
+    grid-template-columns: repeat(auto-fit, minmax(125px, auto)) !important;
+}
+.tabcontent .box{
+    width: 140px;
+}
+.tabcontent .box-img{
+    height:210px; 
+    width: 140px;
+}

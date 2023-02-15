@@ -1,0 +1,42 @@
+.editprofile {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editprofile .file-upload .square {
+    height: 250px;
+    width: 250px;
+    margin: auto;
+    vertical-align: middle;
+    border: 1px solid #e5dfe4;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.editprofile .form-control {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #29292e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e5dfe4;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.editprofile .row {
+    width: 500px;
+}
+.editprofile h2{
+    margin-bottom: 20px;
+}

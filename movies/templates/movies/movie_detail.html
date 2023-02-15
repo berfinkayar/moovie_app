@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/movie_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block title %}Movie{% endblock %}
+{% block content %}
+<div class="col-1">
+            <div class="movie-image" style="float: left; margin-right: 30px;"> <img src="{{movie.poster}}"/></div>
+            <h2>{{movie.name}}
+                {% for director in movie.director.all %}
+                <a href="{% url 'director_detail' director_id=director.id %}" style="font-size: 13px; font-weight: 400; ">
+                    &nbsp;{{director.name}}
+                </a>
+                {% endfor %}
+            </h2>
+            <p> {{movie.year}} </p>
+            <p>{{movie.description}}</p>
+            <div class="tab" style="clear: both;">
+                <button class="tablinks active" onclick="openTab(event, 'Cast')" id="defaultOpen"><b>Cast</b></button>
+                <button class="tablinks" onclick="openTab(event, 'Genres')"><b>Genres</b></button>
+            </div>
+            <div id="Cast" class="tabcontent">
+                {% for character in character_list %}
+                <a href="{% url 'actor_detail' actor_id=character.actor.id %}" class="tooltip">{{character.actor}}
+                    <span class="tooltiptext">{{character}}</span>
+                </a>
+                {% endfor %}
+            </div>
+              
+            <div id="Genres" class="tabcontent">
+                {% for genre in movie.genre.all %}
+                <a href="{% url 'genre_detail' genre_id=genre.id %}" class="tooltip">{{genre.name}}</a>
+                {% endfor %}
+            </div>
+            <br>
+            <h3 >Post Review</h3>
+            <form action="{% url 'review_create' movie_id=movie.id %}" method="POST" class="form-block" id="review-create">
+                {% csrf_token %}
+                {{review_form.as_p}}
+                <button type="submit" class="form-btn">Post</button>
+            </form>
+            <br><br><br>
+            <h3>Recent reviews</h3>
+            {% if review_dict %}
+                {% for review, liked in review_dict.items %}
+                    {% include "movies/review.html" %} 
+                {% endfor %}
+                <br>
+                <a href="{% url 'review_list' movie_id=movie.id %}">
+                    <button class="more-review" style="font-size: 13px; border-radius:5px">More reviews</button>
+                </a>
+            {% else %}
+                <div class="no-review">
+                    <p>No reviews for this movie.</p>
+                </div>
+            {% endif %}
+</div>
+<div class="col-2">
+    <br>
+    {% if user.is_superuser %}
+    <a href="{% url 'movie_delete' movie_id=movie.id %}">
+        <button class="movie-delete" id="movie-delete" style="margin-left: 260px;"  value="{{movie.id}}">Delete Movie <i class="fa fa-close" style="font-size: 15px;"></i></button>
+    </a>
+    {% endif %}
+    <div class="movie-btns" style="margin-left: 230px;">
+        <div class="sidebyside" style="display: block;">
+            {% if not watched %}
+            <button class="watched" id="watched" value="{{movie.id}}" style="float: left; color: white;">
+            {% else %}
+            <button class="watched" id="watched" value="{{movie.id}}" style="float: left; color: var(--main-color)">
+            {% endif %}
+                <i class="fa fa-eye"></i><br>Watched
+            </button>
+            
+            {% if not liked %}
+            <button class="like-movie" id="like-movie" value="{{movie.id}}" style="float: left; color: white;">
+            {% else %}
+            <button class="like-movie" id="like-movie" value="{{movie.id}}" style="float: left; color: var(--main-color)">
+            {% endif %}
+                <i class="fa fa-heart"></i><br>Like
+            </button>
+
+            {% if not in_watchlist %}
+            <button class="watchlist" id="watchlist" value="{{movie.id}}" style="color: white;">
+            {% else %}
+            <button class="watchlist" id="watchlist" value="{{movie.id}}" style="float: left; color: var(--main-color)">
+            {% endif %}
+                <i class="fa fa-plus"></i><br>Watchlist
+            </button>
+        </div>
+        <form id="star-form" method="POST" action="{% url 'rate_movie' movie_id=movie.id %}">
+            {% csrf_token %}
+            <div class="rate-stars" style="display: block;">
+                <div class="rating">
+                    {% include "movies/user_stars.html" %}
+                </div>
+            </div>
+        </form>
+        <a href="#review-create">
+            <button class="log" id="log-movie" value="{{movie.id}}" style="display: block;">
+                    Log movie
+            </button>
+        </a>
+        <button class="add-to-list" id="movie-to-list" onclick="openForm('add-to-list-form')" style="display: block;">
+            Add to list
+        </button>
+        <div class="add-to-list-form" id="add-to-list-form">
+            <button class="close-button" type="button" onclick="closeForm('add-to-list-form')" style="margin-left: 335px;"><i class="fa fa-close"></i></button>
+            <form  style="margin-left: 40px;" method="post" action="{% url 'movie_to_list' movie_id=movie.id %}">
+                {% csrf_token %}
+                <p style="color: white; margin-left: 60px; font-size: 14px; font-weight: 500; width: 270px; word-wrap: break-word;"> Add {{movie.name}} to a list</p>
+                <br>
+                <select name="list" id="list" style="margin-left: 80px; width: 200px;">
+                {% for list in lists %}
+                    <option value="{{list.id}}">{{list.name}}</option>
+                {% endfor %}
+                </select>
+                <br><br>
+                <button class="new-list" formAction="{% url 'list_create' %}" style="margin-left: 75px;">Create New List</button>
+                <input class="form-submit" type="submit" value="Add">
+              </form>
+        </div>
+    </div>
+    <div class="average-rating" style="margin-left: 240px; margin-top: 50px; font-weight:500;">
+        Average Rating: {{movie.rating | floatformat }}<br><br>
+        <div class="stars" style="margin-left: 60px;">
+            {% include "movies/movie_stars.html" %}
+        </div>
+    </div>
+    <div class="friend-activity" style="margin-left: 230px; margin-top: 20px; font-weight:500; width: 320px;">
+        <span style="margin-left: 10px;">Friend Activity</span><br><br>
+        {% for friend in friends %}
+        <a href=" {% url 'profile' username=friend.username %}">
+            <div class="pp" style="display: inline-block;">
+            <img src="{{friend.profilepic}}" class="ava-comment" style="width: 50px; height: 50px; margin-right: 5px;">
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

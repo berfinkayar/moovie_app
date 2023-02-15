@@ -1,0 +1,46 @@
+.scrollmenu {
+    background-color: transparent;
+    overflow: auto;
+    white-space: nowrap;
+    margin-left: 200px;
+    width: 1020px;
+}
+
+.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+.scrollmenu a:hover {
+    background-color: #777;
+}
+
+.scrollmenu .movie-container{
+    margin-top: 10px;
+    width: 200px;
+    gap: 1rem;
+}
+.scrollmenu .movie-container .box {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top; 
+}
+.scrollmenu .movie-container .box .box-img img{
+    width: 180px;
+    height: 100%;
+    object-fit: cover;
+}
+.scrollmenu .movie-container .box h3{
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: initial;
+}
+.scrollmenu .movie-container .box span{
+    font-size: 13px;
+}
+.scrollmenu .movie-container a:link, a:visited {
+    color: white; 
+}

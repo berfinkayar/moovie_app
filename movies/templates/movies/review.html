@@ -1,0 +1,78 @@
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
+{% endblock %}
+<div class="review" id="review-{{review.id}}">
+    <div class="comment-block" style="width: 800px;">
+        <div class="comment">
+            <div class="img-comment">	
+                <a href=" {% url 'profile' username=review.user.username %}">
+                    <div class="pp">
+                    <img src="{{review.user.profilepic}}" alt="" class="ava-comment">
+                    </div>
+                </a>
+            </div>
+            <div class="comment-content">
+                <span class="comment-name">
+                        <a href="{% url 'profile' username=review.user.username %}">{{review.user.username}}</a>
+                </span>
+                <a href="" style="margin-left: 180px;" class="comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    {{review.date}}
+                </a>
+                <p class="comment-text" id="review-text-{{review.id}}" style="word-wrap: break-word; width: 660px;">
+                    {{review.review_text}}
+                </p>
+                <div class="sidebyside" style="display: inline-block; width: 750px;">
+                    {% if not liked %}
+                        <span class="review-like" id="like-{{review.id}}" onclick="reviewLike('{{review.id}}')" style="font-size: 13px; font-weight: 600; margin-top: 15px;">Like <i class="fa fa-heart" style="font-size: 10px;"></i></span>
+                    {% else %}
+                        <span class="review-like" id="like-{{review.id}}" onclick="reviewLike('{{review.id}}')" style="color: var(--main-color); font-size: 13px; font-weight: 600; margin-top: 15px;">Liked <i class="fa fa-heart" style="font-size: 10px;"></i></span>
+                    {% endif %}
+                    <button id="like-count-{{review.id}}" onclick="openForm('likers-{{review.id}}')" style="font-size: 11px; color: white; font-weight:500; background: none; position: relative; right: 324px;"> &nbsp;{{review.like_count}} likes</button>
+                </div>
+                <div class="likers" id="likers-{{review.id}}">
+                    <button class="close-button" type="button" onclick="closeForm('likers-{{review.id}}')"><i class="fa fa-close"></i></button>
+                    <div class="scroll">
+                    {% for user in review.likers.all %}
+                    <div class="liker">
+                        <a href=" {% url 'profile' username=user.username %}">
+                            <img src="{{user.profilepic}}" class="ava-comment" style="margin-right:10px; float: left; height: 60px; width: 60px;">
+                        </a>
+                        <span class="comment-name">
+                                <a href="{% url 'profile' username=user.username %}">{{user.name}}</a>
+                                <br>@{{user.username}}
+                        </span>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% if review.user == user or user.is_superuser %}
+                <span class="buttons" style="position: relative; left: 660px;">
+                    <button class="edit-button"  onclick="openForm('edit-{{review.id}}')"><i class="fa fa-pencil"></i></button>
+                    <div class="edit-popup" id="edit-{{review.id}}">
+                        <form class="form-container" action="{% url 'review_edit' review_id=review.id %}" id="editform-{{review.id}}" method="post">
+                            {% csrf_token %}
+                            <div class="center-form">
+                                <textarea id="review_text" name="review_text" minlength="1" maxlength="400" style="font-size: 14px; height: 120px; width: 700px; background-color: var(--text-color); color:white;">{{review.review_text}}</textarea>
+                            </div>
+                            <div class="center-buttons">
+                                <button type="submit" class="btn" onclick="reviewEdit('{{review.id}}')">Save</button>
+                                <button type="button" class="btn cancel" onclick="closeForm('edit-{{review.id}}')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <button class="review-delete" onclick="openForm('delete-{{review.id}}')"><i class="fa fa-close"></i></button>
+                    <div class="delete-popup" id="delete-{{review.id}}">
+                        <p class="delete-text">Do you want to delete this review?</p>
+                        <div class="delete-buttons">
+                            <button type="submit" class="btn" onclick="reviewDelete('{{review.id}}')">Delete</button>
+                            <button type="button" class="btn cancel" onclick="closeForm('delete-{{review.id}}')">Cancel</button>
+                        </div>
+                    </div>
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

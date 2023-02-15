@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+{% block title %}Movies{% endblock %}
+{% block content %}
+<div class="edit-movies" style="margin-top: 100px;">
+    <h2 class="heading">{{list.name}}</h2>
+        {% for movie in movies %}
+        <div class="edit-movie" style="clear:both; margin-left: 350px; width: 650px; height: 180px; margin-top: 30px;">
+            <a href="{% url 'movie_detail' movie_id=movie.id %}">
+                <img style="float:left; height: 180px; width: 120px; margin-right: 10px;" src="{{movie.poster}}" alt="">
+            </a>
+                <div class="sidebyside"  style="display:inline-block; width: 400px;"> 
+                    <a href="{% url 'movie_detail' movie_id=movie.id %}">
+                        <span class="movie-name" style="font-size: 18px; font-weight:500;">{{movie.name}}<span style="font-size: 12px;"> &nbsp;{{movie.year}} </span></span>
+                    </a>
+                    <span class="buttons" style="right: 400px; position: absolute;">
+                        <button class="list-movie-delete" onclick="openForm('list-delete-{{movie.id}}')" style="background: none; color:gray; font-size:18px;"><i class="fa fa-close"></i></button>
+                        <div class="delete-popup" id="list-delete-{{movie.id}}">
+                            <p class="delete-text" style="margin-left: 100px;">Do you want to remove this movie from list?</p>
+                            <div class="delete-buttons">
+                              <a href="{% url 'list_remove_movie' movie_id=movie.id list_id=list.id %}">
+                                <button type="submit" class="btn">Delete</button>
+                              </a>
+                              <button type="button" class="btn cancel" onclick="closeForm('list-delete-{{movie.id}}')">Cancel</button>
+                            </div>
+                          </div>
+                    </span>
+                </div>
+        </div>
+        {% endfor %}
+        <a href="{% url 'movie_list' list_id=list.id %}">
+            <button style="margin-left: 940px; margin-top: 45px; margin-bottom:15px; height:40px; width: 100px;" class="btn">Save</button>
+        </a>
+</div>
+
+{% endblock %}
+</html>

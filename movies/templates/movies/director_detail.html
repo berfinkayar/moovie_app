@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Director{% endblock %}
+{% block content %}
+{% if movie_list %}
+<section class="movies" id="movies">
+      <h2 class="heading">{{director.name}} (director)</h2>
+      <div class="movies-container">
+        {% for movie in movie_list %}
+          <a href="{% url 'movie_detail' movie_id=movie.id %}">
+              <div class="box">
+                  <div class="box-img">
+                      <img src="{{movie.poster}}" alt="">
+                  </div>
+              <h3>{{movie.name}}</h3>
+              <span>{{movie.year}} </span>
+              </div>
+          </a>
+        {% endfor %}
+      </div>
+</section>
+{% endif %}
+{% endblock %}

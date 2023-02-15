@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/movie_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block title %}Reviews{% endblock %}
+{% block content %}
+<div class="review-list">
+    <div class="column">
+    {% if review_dict %}
+    <h3>Reviews</h3>
+        {% for review, liked in review_dict.items %}
+            {% include "movies/review.html" %} 
+        {% endfor %}
+    {% else %}
+        <p style="margin-top: 60px; ">No reviews are available.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

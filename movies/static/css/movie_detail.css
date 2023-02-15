@@ -1,0 +1,300 @@
+.tooltip {
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 4px;
+    padding: 5px 5px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--hover-main);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(157, 97, 155) transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.review-list {
+    height: 100%;
+    display: flex;
+    margin-top: 80px;
+    margin-left: 330px;
+}
+.movie-detail .row {
+    position:relative;
+}
+.more-review {
+    margin-left: 670px;
+}
+.rating{
+    margin-top: 2px;
+    display: flex;
+    flex-direction: row-reverse ;
+    height: 90px;
+    justify-content: center;
+}
+.rating input{
+    margin-top: 13px;
+    position: relative;
+    width: 20px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-appearance: none;
+    appearance: none;
+    overflow: hidden;
+}
+.rating input::before{
+    content: '\f005';
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 24px;
+    left: 9px;
+    color: #030b0f;
+    transition: 0.5s;
+}
+.rating input:nth-child(2n + 1)::before{
+    right: 9px;
+    left: initial;
+}
+.rating input:hover ~ input::before,
+    .rating input:hover::before,
+    .rating input:checked ~ input::before,
+    .rating input:checked::before {
+    color: rgb(244, 231, 87);
+}
+.col-1 {
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 120px;
+    width: 800px;
+    float: left;
+}
+.col-1 img, .review-list img{
+    width: 200px;
+    height: 300px;
+}
+.col-1 .pp img, .review-list .pp img{
+    width: 60px;
+    height: 60px;
+}
+.col-1 a:link, a:visited {
+    color: white; 
+}
+.col-1 a:hover, .review-list a:hover {
+    color: rgb(177, 176, 176);
+}
+.col-1 .form-block .btn, .review-list .form-block .btn{
+    background-color: white;
+    border: none; 
+    color: #333334;
+    padding: 8px 16px; 
+    margin-left: 730px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 16px; 
+    cursor: pointer; 
+}
+.col-2 {
+    width: 350;
+    margin-top: 80px;
+    margin-left: 770px;
+} 
+.form-block .form-btn {
+    padding: 0.7rem 1.4rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 0.5rem;
+    float: right;
+}
+.form-block .form-btn:hover{
+    background-color: var(--hover-main);
+}
+.movie-btns i {
+    font-size: 25px;
+}
+.movie-btns .like-movie i {
+    font-size: 20px;
+    padding-top: 3px;
+}
+.watchlist, .like-movie, .watched, .log, .add-to-list, .rate-stars{
+    height: 55px;
+    font-weight: 500;
+    background-color: #302d2d;
+    border: #0d0c0c;
+    outline: #2d2929;
+    padding-top: 2px;
+    border: 1px solid #222121;
+}
+.rate-stars{
+    width: 300px;
+    height: 60px;
+}
+.movie-delete, .more-review {
+    width: 110px;
+    height: 30px;
+    font-weight: 600;
+    background-color: #302d2d;
+    border: #0d0c0c;
+    outline: #2d2929;
+    color: var(--main-color);
+}
+.watchlist, .like-movie, .watched{
+    margin-top: 30px;
+    width: 100px;
+    padding-top: 2px;
+}
+.log, .add-to-list {
+    font-size: 13px;
+    color: white;
+    width: 300px;
+}
+.watched{
+    border-top-left-radius: 7px;
+}
+.watchlist{
+    border-top-right-radius: 7px;
+}
+.add-to-list{
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.watchlist:hover, .like-movie:hover, .watched:hover, .movie-delete:hover, .log:hover, .add-to-list:hover, .more-review:hover{
+    background-color: #383636;
+}
+.form-submit:hover{
+    background-color: var(--hover-main);
+}
+.add-to-list-form {
+    width: 370px;
+    height: 250px;
+    display: none;
+    position: fixed;
+    bottom: 275px;
+    left: 530px;
+    color: black;
+    background-color: rgb(53, 52, 52);
+    z-index: 9;
+    border-radius: 10px;
+    opacity: 0.95;
+}
+.more-review{
+    margin-left: 700px;
+}
+.form-submit, .new-list{
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    width: 110px;
+    height: 30px;
+    font-weight: 600;
+    border: none;
+}
+.comment-block {
+    padding: 20px 0px;
+}
+.comments-title {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.comment-content {
+    margin-left: 80px;
+}
+
+.comment-content span {
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.comment-name {
+    font-size: 15px;
+    color: white;
+}
+
+.comment-content a {
+    color: white;
+}
+.comment-text {
+    font-size: 14px;
+    line-height: 20px;
+    color: white;
+    background: transparent;
+    height: 80px;
+    width: 600px;
+    padding: 10px 0px 0px 5px;
+}
+
+.form-group .form-input {
+    font-size: 15px;
+    line-height: 50px;
+    font-weight: 400;
+    color: black;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #edeff2;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.form-group textarea.form-input {
+    height: 150px;
+}
+.no-review p {
+    margin-top: 50px;
+}
+.checked {
+    color: rgb(238, 186, 88);
+}
+.img-comment {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-bottom: 15px;
+}
+.ava-comment {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.ava-comment:hover{
+    border: 3px solid var(--main-color);
+}
+.comment-time {
+    text-align: right;
+}
+
+.comment-time {
+    font-size: 13px;
+    color: #b4b7c1;
+}

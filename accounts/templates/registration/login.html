@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="accounts">
+  <div class="container">
+    <div class="column" style="margin-top: 120px;">
+      <h2>Log In</h2>
+      {% if form.errors %}
+        {% for field in form %}
+          {% for error in field.errors %} 
+             <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+             </div>
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+      <form method="post">
+        {% csrf_token %}
+        <p>Username</p>
+        {{form.username }}
+        <br><br>
+        <p>Password</p>
+        {{ form.password }}
+        <br>
+        <button type="submit" class="btn btn-dark"  style="margin-top: 30px; float:right;">Log In</button>
+        <p class="or_signup" style="width:85px; margin-top: 20px;"><a href="{% url 'signup' %}">or Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</html>
+

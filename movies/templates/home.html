@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="home swiper" id="home">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide container">
+            <img src="https://wallpaperaccess.com/full/723687.jpg" alt="">
+            <div class="home-text">
+                <span>Marvel Universe</span>
+                <h1>Venom: Let There <br> Be Carnage</h1>
+                <a href="{% url 'movie_detail' movie_id=580489 %}" class="btn">Log</a>
+            </div>
+        </div>
+        <div class="swiper-slide container">
+            <img src="https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yOTQxNjE0Ny9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY5OTU0ODI5N30.W2G6WXZMELP4ilCLaDg13845qFBGwiSIYQkiIokXEf8/img.jpg?width=980" alt="">
+            <div class="home-text">
+                <span>Marvel Universe</span>
+                <h1>Spider-Man No <br> Way Home</h1>
+                <a href="{% url 'movie_detail' movie_id=634649 %}" class="btn">Log</a>
+            </div>
+        </div>
+        <div class="swiper-slide container">
+            <img src="https://filmmakermagazine.com/wp-content/uploads/2022/01/image2.jpeg" alt="">
+            <div class="home-text">
+                <span>Matt Bettinelli-Olpin, Tyler Gillett</span>
+                <h1>Scream</h1>
+                <a href="{% url 'movie_detail' movie_id=646385 %}" class="btn">Log</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>
