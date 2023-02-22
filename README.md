@@ -18,12 +18,13 @@ Moovie requires [Python] v3+ to run.
 Install the dependencies and start the server.
 
 ```sh
+pip install -r requirements.txt
 python manage.py runserver
 ```
 
 ## Docker
 
-Moovie is very easy to install and deploy in a Docker container.
+You can also install and deploy Moovie in a Docker container.
 
 By default, the Docker will expose port 8080, so change this within the
 Dockerfile if necessary. When ready, simply use the Dockerfile to
