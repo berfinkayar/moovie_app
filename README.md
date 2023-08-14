@@ -49,13 +49,13 @@ Verify the deployment by navigating to your server address in your browser.
 ```sh
 127.0.0.1:8080
 ```
-![pic1](https://www.dropbox.com/s/jsgqt9hadhocza5/Screen%20Shot%202023-02-22%20at%2016.39.14.png?dl=0)
-![pic2](https://www.dropbox.com/s/2fnn18qyjz4279w/Screen%20Shot%202023-02-22%20at%2016.41.50.png?dl=0)
-![pic3](https://www.dropbox.com/s/c0hsb7lmoe0xdjl/Screen%20Shot%202023-02-22%20at%2016.43.46.png?dl=0&raw=1)
-![pic4](https://www.dropbox.com/s/ajcewig4h2wjzut/Screen%20Shot%202023-02-22%20at%2016.44.31.png?dl=0)
-![pic5](https://www.dropbox.com/s/qy7xgabyivqqo17/Screen%20Shot%202023-02-22%20at%2016.45.03.png?dl=0)
-![pic6](https://www.dropbox.com/s/h33auz8rt923fzx/Screen%20Shot%202023-02-22%20at%2016.45.40.png?dl=0)
-![pic7](https://www.dropbox.com/s/f8myw577383g4u7/Screen%20Shot%202023-02-22%20at%2016.47.14.png?dl=0&raw=1)
+![pic1](screenshots/moovie_1.png)
+![pic2](screenshots/moovie_2.png)
+![pic3](screenshots/moovie_3.png)
+![pic4](screenshots/moovie_4.png)
+![pic5](screenshots/moovie_5.png)
+![pic6](screenshots/moovie_6.png)
+![pic7](screenshots/moovie_7.png)
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 
