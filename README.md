@@ -32,7 +32,7 @@ build the image.
 
 ```sh
 cd moovie_app
-docker build -t <youruser>/moovie .
+docker build -t moovie_app .
 ```
 
 This will create the Moovie image and pull in the necessary dependencies.
@@ -41,7 +41,7 @@ Once done, run the Docker image and map the port to whatever you wish on
 your host. Here, we simply map port 8000 of the host to port 8080 of Docker:
 
 ```sh
-docker run -d -p 8000:8080 --name=moovie <youruser>/moovie
+docker run -d -p 8000:8080 moovie_app
 ```
 
 Verify the deployment by navigating to your server address in your browser.
