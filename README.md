@@ -52,10 +52,10 @@ Verify the deployment by navigating to your server address in your browser.
 ![pic1](screenshots/moovie_4.png)
 ![pic2](screenshots/moovie_6.png)
 ![pic3](screenshots/moovie_5.png)
-![pic4](screenshots/moovie_7.png)
-![pic5](screenshots/moovie_2.png)
-![pic6](screenshots/moovie_3.png)
-![pic7](screenshots/moovie_1.png)
+![pic4](screenshots/moovie_3.png)
+![pic5](screenshots/moovie_1.png)
+![pic6](screenshots/moovie_7.png)
+![pic7](screenshots/moovie_2.png)
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 
