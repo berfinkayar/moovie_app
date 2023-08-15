@@ -92,10 +92,10 @@ WSGI_APPLICATION = "project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "project_database",
-        "USER": "<your user>",
-        "PASSWORD": "<your password>",
-        "HOST": "127.0.0.1",
+        "NAME": "moovie",
+        "USER": "root",
+        "PASSWORD": "password",
+        "HOST": "mysql",
         "PORT": "3306",
         "OPTIONS": {"init_command": "SET sql_mode='STRICT_TRANS_TABLES'"},
     }

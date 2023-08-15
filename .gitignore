@@ -1,2 +1,4 @@
 ENV_DIR
 __pycache__/
+**/.DS_Store
+mysql/
