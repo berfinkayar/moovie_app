@@ -62,4 +62,5 @@ Verify the deployment by navigating to your server address in your browser.
    [HTML]: <https://html.com>
    [CSS]: <https://en.wikipedia.org/wiki/CSS>
    [jQuery]: <http://jquery.com>
+   [MySQL]: <https://www.mysql.com>
 
