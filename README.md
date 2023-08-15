@@ -10,10 +10,18 @@ Moovie uses a number of open source projects to work properly:
 - [HTML] 
 - [CSS] 
 - [jQuery] - lightweight, "write less, do more" JavaScript library
+- [MySQL] 
 
 ## Installation
 
 Moovie requires [Python] v3+ to run.
+
+Clone this repository to your local machine:
+
+```sh
+git clone https://github.com/berfinkayar/moovie_app.git
+cd moovie_app
+```
 
 Install the dependencies and start the server.
 
@@ -26,28 +34,18 @@ python manage.py runserver
 
 You can also install and deploy Moovie in a Docker container.
 
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
+By default, the Docker will expose port 8000, so change this within the
+Docker compose file if necessary. When ready, simply use it to build and 
+run the images.
 
 ```sh
-cd moovie_app
-docker build -t moovie_app .
-```
-
-This will create the Moovie image and pull in the necessary dependencies.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. Here, we simply map port 8000 of the host to port 8080 of Docker:
-
-```sh
-docker run -d -p 8000:8080 moovie_app
+docker-compose up
 ```
 
 Verify the deployment by navigating to your server address in your browser.
 
 ```sh
-127.0.0.1:8080
+127.0.0.1:8000
 ```
 ![pic1](screenshots/moovie_4.png)
 ![pic2](screenshots/moovie_6.png)
